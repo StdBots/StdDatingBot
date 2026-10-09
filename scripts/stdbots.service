@@ -1,0 +1,15 @@
+[Unit]
+Description=StdDatingBot Telegram Service
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/stddatingbot
+ExecStart=/opt/stddatingbot/bin/bot
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/stddatingbot/.env
+
+[Install]
+WantedBy=multi-user.target
