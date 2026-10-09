@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    restart: always
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=stddatingbot_db
+      - ADMIN_IDS=${ADMIN_IDS:-7394590844}
+      - FORCE_SUB_CHANNEL=StdBots
+      - MIN_AGE=18
+      - MAX_AGE=80
+      - ENV=production
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

@@ -1,0 +1,66 @@
+{
+  "name": "StdDatingBot",
+  "description": "High-Performance Concurrency Telegram Anonymous Dating, Matchmaking & 1-on-1 Chat Tunnel Bot built in Go. Swipe matching, Tinder-style card discovery, mutual connection alerts, and fully confidential private messaging.",
+  "repository": "https://github.com/StdBots/StdDatingBot",
+  "logo": "https://graph.org/file/00ea4effe5d2dfbb8d5be.jpg",
+  "keywords": [
+    "telegram",
+    "bot",
+    "golang",
+    "dating",
+    "matchmaking",
+    "anonymous-chat",
+    "chat-tunnel",
+    "tinder",
+    "mongodb",
+    "stdbots",
+    "std-deepanshu"
+  ],
+  "stack": "container",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token from @BotFather",
+      "required": true
+    },
+    "ADMIN_IDS": {
+      "description": "Comma-separated list of Telegram Admin User IDs",
+      "value": "7394590844",
+      "required": false
+    },
+    "MONGO_URI": {
+      "description": "MongoDB Connection String (Atlas or standalone)",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "Database Name",
+      "value": "stddatingbot_db",
+      "required": false
+    },
+    "FORCE_SUB_CHANNEL": {
+      "description": "Channel handle for forced subscription (without @)",
+      "value": "StdBots",
+      "required": false
+    },
+    "MIN_AGE": {
+      "description": "Minimum allowed age for dating participants",
+      "value": "18",
+      "required": false
+    },
+    "MAX_AGE": {
+      "description": "Maximum allowed age for dating participants",
+      "value": "80",
+      "required": false
+    },
+    "ENV": {
+      "description": "Runtime Environment",
+      "value": "production",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
